@@ -1,0 +1,49 @@
+url-shortener/
+├── cmd/
+│   └── api/
+│       └── main.go                    # Main application entry point
+├── configs/
+│   └── config.yaml                    # Configuration file with database, cache, server settings
+├── internal/
+│   ├── app/
+│   │   └── app.go                     # Main application logic and dependency injection
+│   ├── core/
+│   │   ├── entities/
+│   │   │   ├── url.go                 # URL entity definition
+│   │   │   └── analytics.go           # Analytics entity definition
+│   │   └── services/
+│   │       ├── url_service.go         # URL shortening business logic
+│   │       └── analytics_service.go   # Analytics business logic
+│   ├── db/
+│   │   ├── migrations/                # Database migrations folder
+│   │   │   ├── 001_create_urls.sql    # Migration for URLs table
+│   │   │   └── 002_create_analytics.sql # Migration for Analytics table
+│   │   └── repository/
+│   │       ├── url_repository.go      # Repository for URLs data access
+│   │       └── analytics_repository.go # Repository for analytics data access
+│   ├── http/
+│   │   ├── handlers/
+│   │   │   ├── shortener.go           # HTTP handler for URL shortening
+│   │   │   └── analytics.go           # HTTP handler for analytics retrieval
+│   │   ├── middleware/
+│   │   │   └── logging.go             # Logging middleware
+│   │   └── router.go                  # Sets up HTTP routes for the API
+│   ├── cache/
+│   │   └── redis.go                   # Redis caching interface
+│   └── analytics/
+│       └── tracking.go                # Analytics tracking logic
+├── scripts/
+│   ├── build.sh                       # Build script
+│   └── deploy.sh                      # Deploy script for Fly.io or Heroku
+├── test/
+│   ├── unit/                          # Folder for unit tests
+│   │   ├── url_service_test.go        # Tests for URL service
+│   │   └── analytics_service_test.go  # Tests for analytics service
+│   └── integration/                   # Folder for integration tests
+│       └── url_shortener_integration_test.go # Integration tests for full system
+├── Dockerfile                         # Dockerfile to containerize the application
+├── docker-compose.yaml                # Docker Compose for local dev environment
+├── go.mod                             # Go module dependencies
+├── go.sum                             # Go module checksums
+├── Makefile                           # Makefile with common commands
+└── README.md                          # Project README with setup, API docs, and more
